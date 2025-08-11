@@ -74,7 +74,7 @@ if prompt:
 
     model = "Llama3-8b-8192"
     groq_chat = ChatGroq(
-        groq_api_key=os.environ.get("GROQ_API_KEY"),  # ✅ Fixed key name
+        groq_api_key = st.secrets["GROQ_API_KEY"],
         model_name=model
     )
 
@@ -83,3 +83,4 @@ if prompt:
 
     st.chat_message("assistant").markdown(response)
     st.session_state.messages.append({'role': 'assistant', 'content': response})
+
